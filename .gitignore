@@ -2,3 +2,5 @@ env/
 gen_data/
 *.pkl
 *.log
+.Rproj.user
+.Rhistory

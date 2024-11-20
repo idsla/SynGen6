@@ -1,7 +1,7 @@
-#if (!require("BiocManager", quietly = TRUE))
-# install.packages("BiocManager")
+if (!require("BiocManager", quietly = TRUE))
+ install.packages("BiocManager")
 
-#BiocManager::install("snpStats")
+BiocManager::install("snpStats")
 
 library(PhenotypeSimulator)
 library(tidyverse)
@@ -13,7 +13,7 @@ genotypes = snp_data %>% select(3:ncol(.)) %>% as.matrix()
 
 noiseBg <- noiseBgEffects(N = nrow(genotypes), P = 1)
 causalSNPs <- getCausalSNPs(N=nrow(genotypes), NrCausalSNPs = round(0.1*ncol(genotypes)),genotypes=genotypes)
-causalSNPs <- standardiseGenotypes(genotypes)
+causalSNPs <- standardiseGenotypes(causalSNPs)
 geneticFixed <- geneticFixedEffects(N=nrow(genotypes), X_causal=causalSNPs, P=1, id_samples = 1:nrow(genotypes))
 
 genVar <- 0.9
