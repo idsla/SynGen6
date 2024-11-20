@@ -4,3 +4,4 @@ gen_data/
 *.log
 .Rproj.user
 .Rhistory
+.RData
